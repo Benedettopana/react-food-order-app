@@ -1,9 +1,10 @@
 import { useContext } from "react";
+
 import Modal from "./UI/Modal.jsx";
-import CartContext from "../store/CartContext";
-import { currenctFormatter } from "../util/formatting.js";
+import CartContext from "../store/CartContext.jsx";
 import Button from "./UI/Button.jsx";
-import UserProgressContext from "../store/UserProgressContex.jsx";
+import { currencyFormatter } from "../util/formatting.js";
+import UserProgressContext from "../store/UserProgressContext.jsx";
 import CartItem from "./CartItem.jsx";
 
 export default function Cart() {
@@ -42,13 +43,13 @@ export default function Cart() {
           />
         ))}
       </ul>
-      <p className="cart-total">{currenctFormatter.format(cartTotal)}</p>
+      <p className="cart-total">{currencyFormatter.format(cartTotal)}</p>
       <p className="modal-actions">
         <Button textOnly onClick={handleCloseCart}>
           Close
         </Button>
         {cartCtx.items.length > 0 && (
-          <Button onClick={handleGoToCheckout}>Go to checkout</Button>
+          <Button onClick={handleGoToCheckout}>Go to Checkout</Button>
         )}
       </p>
     </Modal>
